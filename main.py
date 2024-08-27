@@ -1,9 +1,9 @@
 from chatbot import AIChatBot
+from models import Provider
 
 def main():
     message = input("Input your message: " )
-    name = input("Input your name: ")
-    bot = AIChatBot(name=name, message=message)
+    bot = AIChatBot(human_message=message, provider=Provider.OPENAI)
     print(bot.startChat())
 
 if __name__ == "__main__":

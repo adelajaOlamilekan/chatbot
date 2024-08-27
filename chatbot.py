@@ -1,5 +1,3 @@
-from langchain_core.messages import AIMessage
-from langchain_core.messages import HumanMessage
 from models import Provider, AIModel
 
 
@@ -13,8 +11,8 @@ class ChatBot():
 
 class AIChatBot(AIModel):
     def __init__(self, human_message: str, provider: Provider):
-        super.__init__(provider)
+        super().__init__(provider)
         self.human_message = human_message
 
-    def chatStart(self):
-        return self.model.invoke([HumanMessage(content=self.human_message)]).text
+    def startChat(self):
+        return super().invoke_model(message=self.human_message)
